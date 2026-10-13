@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 145 63% 24%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 36 100% 95%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 40%;
+    --accent: 36 100% 50%;
+    --accent-foreground: 222 47% 11%;
+    --border: 214 22% 88%;
+    --input: 214 22% 88%;
+    --ring: 145 63% 24%;
+    --radius: 0.6rem;
+    --saffron: 24 95% 53%;
+    --govgreen: 145 63% 24%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: "Noto Sans Devanagari", "Segoe UI", system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* फोटो गैलरी: अगली फोटो तक का समय दिखाने वाली पट्टी */
+@keyframes gallery-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* आपातकालीन बटन — हल्का ऊपर-नीचे तैरता रहे */
+@keyframes emergency-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.emergency-float {
+  animation: emergency-float 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .emergency-float {
+    animation: none;
+  }
+}
